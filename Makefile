@@ -6,9 +6,8 @@ COMMON_CONF_FLAGS:=--enable-debug --disable-hardening --disable-bench --disable-
 BU_CONF_FLAGS:=$(COMMON_CONF_FLAGS) --enable-gperf
 XT_CONF_FLAGS:=$(COMMON_CONF_FLAGS)
 ABC_CONF_FLAGS:=$(COMMON_CONF_FLAGS)
-CLASSIC_CONF_FLAGS:=$(COMMON_CONF_FLAGS) --enable-uahf
 
-.PHONY: bu abc xt classic
+.PHONY: bu abc xt 
 
 all: bu abc xt
 
@@ -16,7 +15,6 @@ clean:
 	-(cd bucash/$(VARIANT); make clean)
 	-(cd xt/$(VARIANT); make clean)
 	-(cd abc/$(VARIANT); make clean)
-#	(cd classic; make clean)
 
 
 bu:
@@ -37,9 +35,4 @@ abc:
 	(cd abc/$(VARIANT); ../configure $(ABC_CONF_FLAGS))
 	(cd abc/$(VARIANT); $(MAKE) $(PLLEL))
 
-classic:
-	(cd classic; ./autogen.sh)
-	(cd classic; mkdir -p $(VARIANT))
-	(cd classic/$(VARIANT); ../configure $(CLASSIC_CONF_FLAGS))
-	(cd classic/$(VARIANT); $(MAKE) $(PLLEL))
 
