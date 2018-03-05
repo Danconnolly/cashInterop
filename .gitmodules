@@ -1,6 +1,7 @@
 [submodule "bucash"]
 	path = bucash
 	url = git@github.com:BitcoinUnlimited/BitcoinUnlimited.git
+	branch = BitcoinCash
 [submodule "abc"]
 	path = abc
 	url = git@github.com:Bitcoin-ABC/bitcoin-abc.git
